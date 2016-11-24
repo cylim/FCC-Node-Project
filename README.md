@@ -1,7 +1,7 @@
-## Introduction
-This project is to create a simple API to convert date to/from timestamp.
+# Introduction
+This project is for all Node API project from Free Code Camp
 
-## Instructions
+## Timestamp API
 1. Think of the timestamp or date you would like to convert
 2. Place it after the link: https://cy-fcc-timestamp-api.herokuapp.com/
 
@@ -12,5 +12,6 @@ This project is to create a simple API to convert date to/from timestamp.
 ### Example Results
 ``` { "unix": 1450137600, "natural": "December 15, 2015" } ```
 
-## References
-This is a project from [Free Code Camp](https://www.freecodecamp.com/challenges/timestamp-microservice)
+# References
+1. [Timestamp API](https://www.freecodecamp.com/challenges/timestamp-microservice)
+2. [Request Header Parser](https://www.freecodecamp.com/challenges/request-header-parser-microservice)

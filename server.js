@@ -40,6 +40,7 @@ function toDate(unix) {
     return moment.unix(unix).format("MMMM D, YYYY");
 }
 
-app.listen(8080, function(){
-    console.log("Running at 8080");
+var port = process.env.PORT || 8080;
+app.listen(port, function(){
+    console.log("Running at " + port);
 });

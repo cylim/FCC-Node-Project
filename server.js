@@ -1,12 +1,23 @@
 var express = require('express');
+var path = require('path');
 var app = express();
+var compression = require('compression');
 var moment = require('moment');
+
+var oneDay = 86400000;
+
+app.use(compression());
+app.use(express.static(__dirname + 'public', { maxAge: oneDay }));
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
+});
+
+app.get('/', function(req, res) {
+	res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.get('/:query', function(req, res) {

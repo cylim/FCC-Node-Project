@@ -1,13 +1,17 @@
 var express = require('express');
 var path = require('path');
-var app = express();
 var compression = require('compression');
-var moment = require('moment');
+var bodyParser = require("body-parser");
+
+var app = express();
 
 var oneDay = 86400000;
 
 app.use(compression());
 app.use(express.static(__dirname + 'public', { maxAge: oneDay }));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -16,58 +20,17 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.use('/', require('./app/routes'));
+
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err.status);
 });
 
-app.get('/:query', function(req, res) {
-    var date = req.params.query;
-    var unix = null;
-    var natural = null;
-    
-    // Check for initial unix time
-    if (+date >= 0) {
-        unix = +date;
-        natural = toDate(unix);
-    } 
-    
-    // Check for initial natural time
-    if (isNaN(+date) && moment(date, "MMMM D, YYYY").isValid()) {
-        unix = +toTimestamp(date);
-        natural = toDate(unix);
-    }
-    
-    var dateObj = { "unix": unix, "natural": natural };
-    res.json(dateObj);
-});
 
-app.get('/api/whoami', function(req, res){
-    var header = req.headers;
-    var ip = header['x-forwarded-for'];
-    var language = header["accept-language"];
-    var os = header['user-agent'];
-    os = os.substring(os.indexOf("(") + 1);
-    os = os.split(')', 1)[0];
-    
-    var resObject = {
-        "ipaddress":ip,
-        "language":language,
-        "software":os
-    };
-    res.json(resObject);
-});
 
-function toTimestamp(date) {
-    // Conver from natural date to unix timestamp
-    return moment(date, "MMMM D, YYYY").format("X");
-}
-
-function toDate(unix) {
-    // Convert unix timestamp to natural date
-    return moment.unix(unix).format("MMMM D, YYYY");
-}
-
-var port = process.env.PORT || 8080;
-app.listen(port, function(){
-    console.log("Running at " + port);
+app.set('port', process.env.PORT || 8080);
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
 });

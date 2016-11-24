@@ -17,7 +17,7 @@ app.get('/:query', function(req, res) {
     // Check for initial unix time
     if (+date >= 0) {
         unix = +date;
-        natural = toTimestamp(unix);
+        natural = toDate(unix);
     } 
     
     // Check for initial natural time

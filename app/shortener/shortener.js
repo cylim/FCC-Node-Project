@@ -2,7 +2,7 @@ var path = require('path');
 var mongodb = require('mongodb'); //lets require/import the mongodb native drivers.
 
 var MongoClient = mongodb.MongoClient; //We need to work with "MongoClient" interface in order to connect to a mongodb server.
-var database = "mongodb://localhost:27017/"; //process.env.MONGOLAB_URI;
+var database = process.env.MONGOLAB_URI; //"mongodb://localhost:27017/";
 
 var baseURL = "https://cyfcc.herokuapp.com/api/shortener/";
 var regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;

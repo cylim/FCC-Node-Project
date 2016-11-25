@@ -11,5 +11,6 @@ router.get(api + 'time', time.main);
 router.get(api + 'time/:query', time.query);
 router.get(api + 'whoami', whoami.execute);
 router.get(api + 'shortener', shortener.main);
+router.get(api + 'shortener/:link', shortener.redirect);
 
 module.exports = router;

@@ -37,16 +37,26 @@ Get a URL, then create a shorter URL which redirect to the URL. Visit [Cyfcc](ht
 Allow user to search for images, and see what the history
 
 ### Example Usages
-1. [https://cyfcc.herokuapp.com/api/image/cat](https://cyfcc.herokuapp.com/api/image/cat)
-2. [https://cyfcc.herokuapp.com/api/image/cat?offset=2](https://cyfcc.herokuapp.com/api/image/cat?offset=2)
+1. [https://cyfcc.herokuapp.com/api/imagesearch/cat](https://cyfcc.herokuapp.com/api/imagesearch/cat)
+2. [https://cyfcc.herokuapp.com/api/imagesearch/cat?offset=2](https://cyfcc.herokuapp.com/api/imagesearch/cat?offset=2)
 
 *offset is for pagination, 2 means second page.
 
 ### Example Results
 ``` {"url":"https://i.ytimg.com/vi/cNycdfFEgBc/maxresdefault.jpg","snippet":"Cats scared of Cucumbers ...","thumbnail":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQIpKVlrysjWTWyDxnvCg12eSyOy2CcISl-ZyHcTmhmhp-zL78Mq7s0_4Li","context":"https://www.youtube.com/watch?v=cNycdfFEgBc"}  ```
 
+## 5. File Metadata Microservice
+Allow user to upload a file and then determine the file size.
+
+### Example Usages
+1. [https://cyfcc.herokuapp.com/api/filesize](https://cyfcc.herokuapp.com/api/filesize)
+
+### Example Results
+``` { "size": 12890054 } ```
+
 # References
 1. [Timestamp API](https://www.freecodecamp.com/challenges/timestamp-microservice)
 2. [Request Header Parser](https://www.freecodecamp.com/challenges/request-header-parser-microservice)
 3. [URL Shortener](https://www.freecodecamp.com/challenges/url-shortener-microservice)
 4. [Image Search Abstraction Layer](https://www.freecodecamp.com/challenges/image-search-abstraction-layer)
+5. [File Metadata Microservice](https://www.freecodecamp.com/challenges/file-metadata-microservice)

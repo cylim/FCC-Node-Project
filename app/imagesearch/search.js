@@ -58,7 +58,7 @@ var search = {
 			res.json({status:"error", message:e.message});
 		});
 	},
-	latest: function(req, res){
+	history: function(req, res){
 		MongoClient.connect(mongoURL, function (err, db) {
 			if (err) throw err;
 

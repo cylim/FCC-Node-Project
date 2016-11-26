@@ -2,7 +2,7 @@ var mongodb = require('mongodb');
 var https = require("https");
 
 var MongoClient = mongodb.MongoClient;
-var mongoURL = "mongodb://localhost:27017/";
+var mongoURL = process.env.MONGOLAB_URI; // "mongodb://localhost:27017/";
 
 var key = process.env.GoogleKey;
 var cx = process.env.GoogleCustomSearchCX;

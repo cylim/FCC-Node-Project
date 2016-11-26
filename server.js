@@ -21,7 +21,7 @@ app.use(function(req, res, next) {
 
 var month = 86400000 * 30;
 app.use(express.static(__dirname + '/static/', { maxAge: month }));
-app.use('/api/', require('./api/routes'));
+app.use('/api/', require('./app/api/routes'));
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

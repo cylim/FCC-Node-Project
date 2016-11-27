@@ -14,7 +14,7 @@ module.exports = env => {
      */
     entry: {
       app: path.join(__dirname, '../app/'),
-      vendor: ['react', 'react-dom', 'react-router'],
+      vendor: ['react', 'react-dom', 'react-router', 'react-redux'],
     },
     /**
      * output tells webpack where to put the files he creates
@@ -28,15 +28,16 @@ module.exports = env => {
       filename: '[name].[hash].js',
       path: path.join(__dirname, '../build/'),
     },
-
+    devtool: 'source-map',
     module: {
       // Loaders allow you to preprocess files!
       loaders: [
         {
           test: /\.(js)$/, // look for .js files
           exclude: /node_modules/, // ingore /node_modules
-          loader: 'babel', // preprocess with that babel goodness
+          loader: 'babel-loader', // preprocess with that babel goodness
           query: {
+            presets: ['react', 'latest'],
             cacheDirectory: true,
           },
         },
@@ -51,7 +52,7 @@ module.exports = env => {
       }),
 
       /**
-      * HtmlWebpackPlugin will make sure out JavaScriot files are being called
+      * HtmlWebpackPlugin will make sure out JavaScript files are being called
       * from within our index.html
       */
       new HtmlWebpackPlugin({
@@ -61,7 +62,6 @@ module.exports = env => {
       }),
 
       // Only running DedupePlugin() and UglifyJsPlugin() in production
-      ifProd(new webpack.optimize.DedupePlugin()),
       ifProd(new webpack.optimize.UglifyJsPlugin({
         compress: {
           'screw_ie8': true,

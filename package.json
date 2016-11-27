@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "node webpack/webpack-dev-server",
     "build": "rm -Rf build/* | NODE_ENV=production webpack --config webpack/webpack.config.js --progress --env.prod"
   },
@@ -19,7 +19,11 @@
     "multer": "^1.2.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "react-router": "v3.0.0"
+    "react-redux": "^4.4.6",
+    "react-router": "v3.0.0",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.7.4",
+    "redux-thunk": "^2.1.0"
   },
   "repository": "https://github.com/cylim/fcc-node-project.git",
   "devDependencies": {

@@ -5,7 +5,7 @@
  */
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const webpackConfig = require('./webpack.config'); // haven't created this yet. No sweat.
+const webpackConfig = require('./webpack.config'); 
 const path = require('path');
 
 // always dev enviroment when running webpack dev server

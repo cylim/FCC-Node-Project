@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
 });
 
 var month = 86400000 * 30;
-app.use(express.static(__dirname + '/static/', { maxAge: month }));
+app.use(express.static(__dirname + '/build/', { maxAge: month }));
 app.use('/api/', require('./app/api/routes'));
 
 app.use(function(req, res, next) {

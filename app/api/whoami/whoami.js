@@ -12,7 +12,7 @@ var whoami = {
 	    var resObject = {
 	        "ipaddress":ip,
 	        "language":language,
-	        "software":os
+	        "os":os
 	    };
 	    res.json(resObject);
 	}

@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "node webpack/webpack-dev-server",
     "build": "rm -Rf build/* | NODE_ENV=production webpack --config webpack/webpack.config.js --progress --env.prod"
   },

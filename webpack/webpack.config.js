@@ -14,7 +14,7 @@ module.exports = env => {
      */
     entry: {
       app: path.join(__dirname, '../app/'),
-      vendor: ['react', 'react-dom', 'react-router', 'react-redux'],
+      vendor: ['react', 'react-dom', 'react-router'],
     },
     /**
      * output tells webpack where to put the files he creates

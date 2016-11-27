@@ -5,8 +5,6 @@ var bodyParser = require("body-parser");
 
 var app = express();
 
-
-
 app.use(compression());
 
 app.use(bodyParser.json());
@@ -19,15 +17,16 @@ app.use(function(req, res, next) {
     next();
 });
 
-var month = 86400000 * 30;
-app.use(express.static(__dirname + '/build/', { maxAge: month }));
+// var day = 86400000;
+// app.use(express.static(__dirname + '/build/', { maxAge: day }));
+app.use(express.static(path.join(__dirname ,'build')));
 app.use('/api/', require('./app/api/routes'));
 
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err.status);
-});
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err.status);
+// });
 
 
 

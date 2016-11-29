@@ -2,29 +2,24 @@ var express = require('express');
 var router = express.Router();
 
 // Free Code Camp Node API Project
-var time = require('./time/time');
-var whoami = require('./whoami/whoami');
-var shortener = require('./shortener/shortener');
-var search = require('./imagesearch/search');
-var filesize = require('./filesize/filesize');
+var timeRouter = require('./time/timeRouter');
+var whoamiRouter = require('./whoami/whoamiRouter');
+var shortenerRouter = require('./shortener/shortenerRouter');
+var imagesearchRouter = require('./imagesearch/imagesearchRouter');
+var filesizeRouter = require('./filesize/filesizeRouter');
 
-router.get('/time', time.main);
-router.get('/time/:query', time.query);
+router.use('/time', timeRouter);
+router.use('/whoami', whoamiRouter);
+router.use('/shortener', shortenerRouter);
+router.use('/imagesearch', imagesearchRouter);
+router.use('/filesize', filesizeRouter);
 
-router.get('/whoami', whoami.execute);
-
-router.get('/shortener', shortener.main);
-router.get('/shortener/:link', shortener.redirect);
-
-router.get('/imagesearch/:query', search.search);
-router.get('/imagesearch/', search.history);
-
-router.get('/filesize/', filesize.main);
-router.post('/filesize/stats', filesize.stats);
 
 
 // Free Code Camp Node FullStack Project
+var voteRouter = require('./vote/voteRouter');
 
+router.use('/vote', voteRouter);
 
 
 module.exports = router;

@@ -12,6 +12,7 @@ var routes = (
     <Router history={browserHistory}>
       <Route path='/' component={Main}>
         <IndexRoute component={Home} />
+        <Route path='vote' component={Home} />
       </Route>
     </Router>
 )

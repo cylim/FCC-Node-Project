@@ -21,7 +21,6 @@ var filesize = {
 		upload(req, res, function(err){
 			if(err) throw err;
 
-			console.log(req);
 			var size = req.file !== undefined ? req.file.size : 0;
 
 			res.json({size: size});
